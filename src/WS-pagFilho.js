@@ -21,12 +21,13 @@ axios.get(urlfilho).then((response) => {
     const dadoshtml = response.data;
     
     const $ = cheerio.load(dadoshtml);
-    const noticia = {
-        titulo: $('h1').text(),
-        linkimg: $('img').attr('src'),
-        datapublicacao: $('div[class="data-publicacao data-publicacao-v2"]').text(),
-        texto: $('p').text()
-    };
+    const titulo = $('h1').text();
+    const linkimg = $('img').attr('src');
+    const datapublicacao = $('div[class="data-publicacao data-publicacao-v2"]').text();
+    const texto = $('p').text();
+
+    const dados = {titulo, linkimg, datapublicacao, texto};
+
     
-    console.log(noticia);
+    console.log(dados);
 }   );
